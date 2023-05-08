@@ -1,0 +1,41 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>cn.yongyetech.nlp-menu-selecter-plugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Nlp-menu-selecter-plugin</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="zhanguodong@dobest.com" url="https://www.yongyetech.cn">YongyeTech</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    可视化选择智能客服系统菜单，并插入到当前编辑器里。<br>
+    <em>0. 移动光标到要插入的位置</em><br>
+    <em>1. 编辑器里右键（Ctrl+Alt+M），打开智能客服菜单选择界面</em><br>
+    <em>2. 选择对应的模块：管理后台or客服工作台</em><br>
+    <em>3. 选择菜单到最后一级</em><br>
+    <em>4. 点确定。插入菜单路径到编辑器里</em><br>
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <notificationGroup id="Custom Notification Group" displayType="BALLOON"/>
+    </extensions>
+    <actions>
+        <action id="cn.yongyetech.plugin.MenuSelectPlugin" class="cn.yongyetech.plugin.MenuSelectPlugin"
+                text="智能客服菜单选择">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt M"/>
+        </action>
+    </actions>
+</idea-plugin>

@@ -1,0 +1,1 @@
+rootProject.name = "nlp-menu-selecter-plugin"
